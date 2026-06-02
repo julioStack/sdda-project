@@ -12,11 +12,20 @@ function App() {
   const registrarTercero = (e) => {
     e.preventDefault();
 
+    let riesgo = "Bajo";
+
+    if (pais === "Colombia") {
+      riesgo = "Alto";
+    } else if (tipoPersona === "Jurídica") {
+      riesgo = "Medio";
+    }
+
     const nuevoRegistro = {
       nombre,
       tipoPersona,
       pais,
       actividad,
+      riesgo,
     };
 
     setRegistros([...registros, nuevoRegistro]);
@@ -50,7 +59,10 @@ function App() {
         </select>
 
         <label>País</label>
-        <select value={pais} onChange={(e) => setPais(e.target.value)}>
+        <select
+          value={pais}
+          onChange={(e) => setPais(e.target.value)}
+        >
           <option>Panamá</option>
           <option>Costa Rica</option>
           <option>Colombia</option>
@@ -76,6 +88,7 @@ function App() {
             <th>Tipo Persona</th>
             <th>País</th>
             <th>Actividad</th>
+            <th>Riesgo</th>
           </tr>
         </thead>
 
@@ -86,6 +99,7 @@ function App() {
               <td>{registro.tipoPersona}</td>
               <td>{registro.pais}</td>
               <td>{registro.actividad}</td>
+              <td>{registro.riesgo}</td>
             </tr>
           ))}
         </tbody>
