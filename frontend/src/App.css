@@ -1,39 +1,194 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
+/* Variables y reset básico */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f4f7fc;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 2rem 1rem;
 }
 
 .container {
-  max-width: 700px;
-  margin: 50px auto;
+  max-width: 1200px;
+  margin: 0 auto;
   background: white;
-  padding: 30px;
-  border-radius: 10px;
+  border-radius: 24px;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
-h1 {
+/* Título centrado */
+.titulo-centrado {
   text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e466e;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid #2c7da0;
+  display: inline-block;
+  width: 100%;
 }
 
+/* Formulario estilo tarjeta */
 .formulario {
-  display: flex;
-  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  align-items: end;
 }
 
-label {
-  margin-top: 15px;
+.formulario label {
+  font-weight: 600;
+  color: #0b3b4f;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #fefefe;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+  outline: none;
+  border-color: #2c7da0;
+  box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.2);
+}
+
+.formulario button {
+  background: linear-gradient(95deg, #1e466e, #2c7da0);
+  border: none;
+  color: white;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
   font-weight: bold;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-input,
-select {
-  padding: 10px;
-  margin-top: 5px;
+.formulario button:hover {
+  background: linear-gradient(95deg, #123456, #1f6a8a);
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Estadísticas de riesgo */
+h2 {
+  font-size: 1.5rem;
+  color: #1e466e;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* Badges de riesgo (aplicados directamente en JSX) */
+.riesgo-badge {
+  display: inline-block;
+  padding: 0.2rem 0.9rem;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.riesgo-bajo {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.riesgo-medio {
+  background: #fef9c3;
+  color: #a16207;
+}
+
+.riesgo-alto {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Tabla moderna */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background-color: #1e466e;
+  color: white;
+  padding: 12px 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  vertical-align: middle;
+}
+
+tr:hover td {
+  background-color: #f8fafc;
 }
 
 button {
-  margin-top: 20px;
-  padding: 12px;
+  background-color: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 30px;
   cursor: pointer;
+  font-weight: 500;
+  transition: 0.1s;
+}
+
+button:hover {
+  background-color: #dc2626;
+  transform: scale(1.02);
+}
+
+/* Responsive para móviles */
+@media (max-width: 700px) {
+  .container {
+    padding: 1rem;
+  }
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+  th, td {
+    font-size: 0.8rem;
+    padding: 8px 4px;
+  }
 }
